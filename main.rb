@@ -18,5 +18,3 @@ $env = {
   :"def-fun" => $def_fun,
   :print => $print
 }
-
-
