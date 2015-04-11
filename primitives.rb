@@ -71,4 +71,6 @@ def $if.eval_args?
 end
 
 $print = lambda { |args, env| puts args[0] }
+
+$get_int = lambda { |args, env| gets.to_i }
 # END Primitives

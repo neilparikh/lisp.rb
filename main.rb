@@ -16,5 +16,6 @@ $env = {
   :'#f' => false,
   :lambda => $lambda,
   :"def-fun" => $def_fun,
-  :print => $print
+  :print => $print,
+  :"get-int" => $get_int
 }
