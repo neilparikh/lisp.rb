@@ -54,7 +54,11 @@ $mul    = lambda { |args, env| args.reduce(:*) }
 
 $div    = lambda { |args, env| args.reduce(:/) }
 
-$define = lambda { |args, env| env[args[0].to_sym] = args[1]; nil }
+$define = lambda { |args, env| env[args[0].to_sym] = my_eval(args[1], env); nil }
+
+def $define.eval_args?
+  false
+end
 
 $equal  = lambda { |args, env| args[0] == args[1] }
 
