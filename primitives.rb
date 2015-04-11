@@ -1,9 +1,6 @@
 # START Primitives
 # TODO:
-# - lambda
 # - cond
-# - define for functions (probably linked to lambda)
-# - lambda
 # - and, or
 # - let
 # - cons, car, cdr etc.
