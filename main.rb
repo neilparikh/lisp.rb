@@ -2,7 +2,7 @@ require_relative 'eval'
 require_relative 'primitives'
 require 'sxp' # https://github.com/bendiken/sxp-ruby
 
-env = {
+$env = {
   :+ => $add,
   :- => $sub,
   :* => $mul,
@@ -15,15 +15,8 @@ env = {
   :'#t' => true,
   :'#f' => false,
   :lambda => $lambda,
-  :"def-fun" => $def_fun
+  :"def-fun" => $def_fun,
+  :print => $print
 }
 
-while true 
-  print "risp> " # Example expr: (+ 2 (+ 4 2))
-  expr = gets
-  break if expr == ",\n" or expr == nil
 
-  s_expr = SXP.read(expr.strip)
-  output = my_eval(s_expr, env)
-  puts output if !output.nil?
-end

@@ -72,4 +72,6 @@ $if     = lambda { |args, env|
 def $if.eval_args?
  false
 end
+
+$print = lambda { |args, env| puts args[0] }
 # END Primitives
