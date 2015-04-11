@@ -17,15 +17,27 @@ end
 class Lamb
   def initialize(args, body)
     @body = body
-    @args = args
+    @arguements = args
   end
 
   def call(args, env)
-    my_eval(@body, env)
+    new_env = {}
+    @arguements.each_with_index do |name, i|
+      new_env[name] = args[i]
+    end
+    my_eval(@body, env.merge(new_env))
+  end
+
+  def eval_args?
+    false
   end
 end
 
-$lambda = lambda { |args, env| }
+$lambda = lambda { |args, env| Lamb.new(args[0], args[1]) }
+
+def $lambda.eval_args?
+  false
+end
 
 $add    = lambda { |args, env| args.reduce(:+) }
 
