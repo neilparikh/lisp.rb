@@ -14,7 +14,8 @@ env = {
   :if => $if,
   :'#t' => true,
   :'#f' => false,
-  :lambda => $lambda
+  :lambda => $lambda,
+  :"def-fun" => $def_fun
 }
 
 while true 

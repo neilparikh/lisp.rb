@@ -23,7 +23,7 @@ class Lamb
   def call(args, env)
     new_env = {}
     @arguements.each_with_index do |name, i|
-      new_env[name] = args[i]
+      new_env[name] = my_eval(args[i], env)
     end
     my_eval(@body, env.merge(new_env))
   end
@@ -36,6 +36,16 @@ end
 $lambda = lambda { |args, env| Lamb.new(args[0], args[1]) }
 
 def $lambda.eval_args?
+  false
+end
+
+$def_fun = lambda { |args, env|
+  func_name = args[0].shift
+  env[func_name] = Lamb.new(args[0], args[1])
+  nil
+}
+
+def $def_fun.eval_args?
   false
 end
 
