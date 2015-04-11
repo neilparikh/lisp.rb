@@ -1,7 +1,6 @@
 # START Primitives
 # TODO:
 # - cond
-# - and, or
 # - let
 # - cons, car, cdr etc.
 
@@ -77,4 +76,8 @@ end
 $print = lambda { |args, env| puts args[0] }
 
 $get_int = lambda { |args, env| gets.to_i }
+
+$and = lambda { |args, env| !args.include?(false) }
+
+$or = lambda { |args, env| args.include?(true) }
 # END Primitives
