@@ -1,7 +1,6 @@
 # START Primitives
 # TODO:
 # - cond
-# - let
 # - cons, car, cdr etc.
 
 class Proc
@@ -80,4 +79,16 @@ $get_int = lambda { |args, env| gets.to_i }
 $and = lambda { |args, env| !args.include?(false) }
 
 $or = lambda { |args, env| args.include?(true) }
+
+$let = lambda { |args, env|
+  new_env = {}
+  args[0].each do |binding|
+    new_env[binding[0]] = binding[1]
+  end
+  my_eval(args[1], env.merge(new_env))
+}
+
+def $let.eval_args?
+  false
+end
 # END Primitives

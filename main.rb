@@ -19,5 +19,6 @@ $env = {
   :print => $print,
   :"get-int" => $get_int,
   :and => $and,
-  :or => $or
+  :or => $or,
+  :let => $let
 }
