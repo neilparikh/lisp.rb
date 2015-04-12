@@ -83,7 +83,7 @@ $or = lambda { |args, env| args.include?(true) }
 $let = lambda { |args, env|
   new_env = {}
   args[0].each do |binding|
-    new_env[binding[0]] = binding[1]
+    new_env[binding[0]] = my_eval(binding[1], env)
   end
   my_eval(args[1], env.merge(new_env))
 }
